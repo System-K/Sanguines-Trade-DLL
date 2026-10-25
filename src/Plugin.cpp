@@ -140,7 +140,7 @@ namespace {
     {
         auto* main = RE::Main::GetSingleton();
         if (!main) return;
-        main->freezeTime = a_paused;
+        main->GetRuntimeData().freezeTime = a_paused; // SKSE-Hotfixes: NG 11 moved freezeTime into Main::RUNTIME_DATA (RE/M/Main.h:94)
     }
 
     // Strip the menu-pause and freeze-frame-background flags from Prisma's

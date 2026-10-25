@@ -27,12 +27,20 @@ endif()
 # -----------------------------------------------------------------------------
 # CommonLibSSE-NG -- pulled from vcpkg via the registry in vcpkg-configuration.json
 # -----------------------------------------------------------------------------
-find_package(CommonLibSSE CONFIG REQUIRED)
+# SKSE-Hotfixes: build against CommonLibSSE-NG 11 via add_subdirectory (Address Library v5, Skyrim 1.7.104)
+set(ENABLE_SKYRIM_SE ON CACHE BOOL "" FORCE)
+set(ENABLE_SKYRIM_AE ON CACHE BOOL "" FORCE)
+set(ENABLE_SKYRIM_VR ON CACHE BOOL "" FORCE)
+set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
+add_subdirectory("$ENV{COMMONLIB_SSE_FOLDER}" "${CMAKE_CURRENT_BINARY_DIR}/_deps/clib-build")
+get_target_property(COMMONLIB_SRC_DIR CommonLibSSE SOURCE_DIR)
+include("${COMMONLIB_SRC_DIR}/cmake/CommonLibSSE.cmake")
 
 # -----------------------------------------------------------------------------
 # Plugin target
 # -----------------------------------------------------------------------------
 add_commonlibsse_plugin(${PROJECT_NAME}
+    NAME "SanguinesTrade" AUTHOR "Sanguine's Trade" VERSION 1.0.0 # SKSE-Hotfixes: NAME/AUTHOR/VERSION for the generated plugin info
     SOURCES
         src/PCH.h
         src/Plugin.cpp

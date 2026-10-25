@@ -2,7 +2,14 @@
     "name": "sanguines-trade-prisma-bridge",
     "version-string": "1.0.0",
     "description": "Prisma UI bridge for Sanguine's Trade",
+    "builtin-baseline": "e456309491fd875487bf02b8a0dca76c1b1b00cc",
     "dependencies": [
-        "commonlibsse-ng"
+        "directxmath",
+        "directxtk",
+        "fmt",
+        "spdlog",
+        "xbyak",
+        "rsm-binary-io",
+        "rapidcsv"
     ]
 }
