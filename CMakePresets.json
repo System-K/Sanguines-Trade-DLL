@@ -1,0 +1,36 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "vs2022-windows",
+            "displayName": "Visual Studio 2026 (x64, vcpkg static-md)",
+            "description": "VS2026 with vcpkg toolchain, v144 toolset to match CommonLibSSE-NG build",
+            "generator": "Visual Studio 18 2026",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "release",
+            "configurePreset": "vs2022-windows",
+            "configuration": "Release",
+            "displayName": "Release"
+        },
+        {
+            "name": "debug",
+            "configurePreset": "vs2022-windows",
+            "configuration": "Debug",
+            "displayName": "Debug"
+        }
+    ]
+}

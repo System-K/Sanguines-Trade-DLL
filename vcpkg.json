@@ -1,0 +1,8 @@
+{
+    "name": "sanguines-trade-prisma-bridge",
+    "version-string": "1.0.0",
+    "description": "Prisma UI bridge for Sanguine's Trade",
+    "dependencies": [
+        "commonlibsse-ng"
+    ]
+}
